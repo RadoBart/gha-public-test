@@ -1,0 +1,21 @@
+name: Image Scan
+
+on:
+  workflow_call:
+    inputs:
+      # Space-separated list of images.
+      scanner-version:
+        required: true
+        type: string
+      images:
+        required: true
+        type: string
+
+jobs:
+  # Setup for matrix run.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - id: setup
+        run: |
+          echo ${{ inputs.scanner-version }} >> $GITHUB_OUTPUT
