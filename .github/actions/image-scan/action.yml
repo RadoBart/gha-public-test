@@ -1,0 +1,12 @@
+name: Image Scan
+description: 'Scan the provided image with Lacework scan tool and return a JSON with the results.'
+
+runs:
+  using: "composite"
+  # Setup for matrix run.
+  steps:
+  - name: Prepare input
+    id: prepare-input
+    shell: bash
+    run: |
+      echo ${{ inputs.scanner-version }} >> $GITHUB_OUTPUT
